@@ -1,164 +1,128 @@
 /* ---------------------------------------------------- */
-/* 1. Reset Básico y Tipografía Profesional */
+/* 6. Estilos del Chat Flotante (Widget) */
 /* ---------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f0f0f5 0%, #e0e0e8 100%); /* Fondo degradado suave */
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-    padding: 20px;
-}
-
-.container {
-    background-color: #ffffff;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto elevado */
-    padding: 40px 30px;
-    max-width: 450px; /* Ancho ideal para una landing page de enlaces */
-    width: 100%;
-    text-align: center;
-}
-
-/* ---------------------------------------------------- */
-/* 2. Estilo del Encabezado y Marca */
-/* ---------------------------------------------------- */
-.brand-name {
-    font-size: 2.2em;
-    font-weight: 800;
-    color: #4a4a4a; /* Color oscuro profesional */
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.divider {
+/* Botón de Abrir Chat (Icono flotante) */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
     width: 60px;
-    height: 4px;
-    background-color: #007bff; /* Color de acento profesional (azul) */
-    margin: 0 auto 30px auto;
-    border-radius: 2px;
+    height: 60px;
+    background-color: #007bff; /* Color de acento */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
-/* ---------------------------------------------------- */
-/* 3. Estilo del Contenido Principal (Texto) */
-/* ---------------------------------------------------- */
-.tagline {
+.chat-toggle-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor del Widget de Chat */
+.chat-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(1);
+    transform-origin: bottom right;
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-widget.hidden {
+    display: none; /* Ocultar con JS */
+}
+
+/* Encabezado del Chat */
+.chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
     font-size: 1.2em;
-    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Cuerpo del Chat y Opciones */
+.chat-body {
+    padding: 15px;
+    background-color: #f7f7f7;
+    flex-grow: 1;
+}
+
+.chat-body p {
     margin-bottom: 15px;
-    line-height: 1.4;
+    font-size: 0.9em;
     color: #555;
 }
 
-.cta-message {
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #007bff; /* Resalta la llamada a la acción */
-}
-
-/* ---------------------------------------------------- */
-/* 4. Estilo de los Botones (Lo más importante) */
-/* ---------------------------------------------------- */
-.contact-buttons {
+.chat-options {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre los botones */
-    margin-bottom: 30px;
+    gap: 10px;
 }
 
-.btn {
+.chat-btn {
     display: block;
-    padding: 15px 20px;
+    padding: 10px;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1.05em;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn i {
-    margin-right: 10px;
-}
-
-/* Botón Primario: WhatsApp Contacto */
-.btn-primary {
-    background-color: #25d366; /* Verde WhatsApp */
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    background-color: #128c7e;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Botón Secundario: Grupo de WhatsApp */
-.btn-secondary {
-    background-color: #128c7e; /* Un tono diferente de WhatsApp */
-    color: #ffffff;
-}
-
-.btn-secondary:hover {
-    background-color: #25d366;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Botón de Soporte 24/7 */
-.btn-support {
-    background-color: #ffc107; /* Amarillo de advertencia/soporte */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9em;
     color: #333;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-support:hover {
-    background-color: #e0b406;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+.chat-btn i {
+    margin-right: 8px;
+    color: #007bff;
 }
 
-/* ---------------------------------------------------- */
-/* 5. Estilo de Enlaces Sociales y Pie de Página */
-/* ---------------------------------------------------- */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 15px;
+.chat-btn:hover {
+    background-color: #e9f5ff;
+    transform: translateY(-1px);
+}
+
+.support-contact {
+    margin-top: 15px;
     border-top: 1px solid #eee;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.8em !important;
 }
 
-.social-link {
-    font-size: 1em;
-    color: #4a4a4a;
+.support-contact a {
+    color: #007bff;
+    font-weight: bold;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-link i {
-    font-size: 1.2em;
-    margin-right: 5px;
-}
-
-.social-link:hover {
-    color: #007bff; /* Color de acento al pasar el mouse */
-}
-
-.instagram-link i {
-    color: #e4405f; /* Color de Instagram */
-}
-
-.email-link i {
-    color: #d93025; /* Color de Google/Correo */
 }
