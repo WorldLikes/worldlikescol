@@ -15,6 +15,4 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWidget.classList.add('hidden'); // Oculta el widget
         openBtn.style.display = 'block';    // Muestra de nuevo el botón flotante
     });
-    
-    // NOTA: El chat permanece cerrado por defecto gracias a la clase 'hidden' en el HTML.
 });
