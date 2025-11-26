@@ -26,11 +26,9 @@
             <a href="https://wa.me/573192467169?text=Hola%20estoy%20interesado%20en%20tus%20servicios" target="_blank" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Hablemos por WhatsApp
             </a>
-
             <a href="https://chat.whatsapp.com/KveqeDzR471Ld9hUtPLZBR" target="_blank" class="btn btn-secondary">
                 <i class="fab fa-whatsapp"></i> Únete a nuestro Grupo
             </a>
-            
             <a href="https://wa.me/573125024495?text=Necesito%20soporte%2024/7" target="_blank" class="btn btn-support">
                 <i class="fas fa-headset"></i> Soporte 24/7
             </a>
@@ -40,7 +38,6 @@
             <a href="https://www.instagram.com/worldlikescoll/" target="_blank" class="social-link instagram-link">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            
             <a href="mailto:Worldlikescol@gmail.com" class="social-link email-link">
                 <i class="fas fa-envelope"></i> Correo
             </a>
@@ -50,6 +47,7 @@
 
     <button id="openChatButton" class="chat-toggle-btn">
         <i class="fas fa-comment-dots"></i>
+        <span id="notificationBadge" class="notification-badge"></span>
     </button>
 
     <div id="chatWidget" class="chat-widget hidden">
@@ -58,17 +56,22 @@
             <button id="closeChatButton" class="close-btn"><i class="fas fa-times"></i></button>
         </div>
         <div class="chat-body">
-            <p>¡Hola! Soy tu asistente World Likes. ¿Qué necesitas? 👇</p>
             
-            <div class="chat-options">
+            <div id="typingIndicator" class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <p id="welcomeMessage" class="hidden">¡Hola! Soy tu asistente World Likes. ¿Qué necesitas? 👇</p>
+            
+            <div id="chatOptions" class="chat-options hidden">
                 <a href="https://wa.me/573192467169?text=Quiero%20la%20lista%20de%20precios%20completa%20de%20los%20servicios." target="_blank" class="chat-btn">
                     <i class="fas fa-wallet"></i> Precios y Servicios
                 </a>
-                
                 <a href="http://www.youtube.com/watch?v=WQtmWnmpfmY" target="_blank" class="chat-btn">
                     <i class="fab fa-youtube"></i> Video Tutorial (Aprende a usar)
                 </a>
-                
                 <a href="https://wa.me/573125024495?text=Necesito%20soporte%20inmediato" target="_blank" class="chat-btn">
                     <i class="fas fa-headset"></i> Soporte Rápido
                 </a>
